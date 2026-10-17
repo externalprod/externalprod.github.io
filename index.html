@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>externalgod</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  ::selection { background: transparent; }
+  html, body { height: 100%; }
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+    font-family: "Inter", system-ui, sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(40% 35% at 25% 30%, rgba(255, 150, 150, 0.22), transparent 70%),
+      radial-gradient(45% 40% at 80% 70%, rgba(20, 0, 0, 0.35), transparent 70%),
+      #6e1f1f;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1.3px);
+    background-size: 10px 10px;
+    opacity: 0.35;
+    mix-blend-mode: soft-light;
+  }
+  .screen {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh 4vw 6vh;
+  }
+  .name {
+    font-family: "Oswald", Impact, sans-serif;
+    font-weight: 600;
+    font-size: clamp(60px, 12vw, 150px);
+    line-height: 1.1;
+    text-transform: lowercase;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    transform: scaleY(2.1);
+    transform-origin: center top;
+    margin-bottom: calc(clamp(60px, 12vw, 150px) * 1.7);
+    pointer-events: none;
+  }
+  .bio {
+    position: absolute;
+    bottom: 12vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 16px;
+  }
+  .links {
+    position: relative;
+    z-index: 2;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .links a:hover { opacity: 0.75; }
+  .links svg { width: 26px; height: 26px; fill: currentColor; }
+
+  .player {
+    position: fixed;
+    z-index: 2;
+    left: 4vw;
+    bottom: 4vh;
+    width: 260px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+  .pbtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #6e1f1f;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  .pbtn svg { width: 16px; height: 16px; fill: currentColor; }
+  .ptitle { font-size: 14px; font-weight: 600; }
+  .partist { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+  .pbar {
+    margin-top: 10px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+  }
+  .pfill { height: 100%; width: 0%; background: #fff; }
+  .ptime {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    font-size: 11px;
+    opacity: 0.6;
+    font-variant-numeric: tabular-nums;
+  }
+  </style>
+</head>
+<body>
+
+  <main class="screen">
+    <h1 class="name">externalgod</h1>
+    <p class="bio">сайтик</p>
+    <nav class="links">
+      <a href="https://t.me/externalgod" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.8 15.2 9.6 19c.4 0 .6-.2.8-.4l1.9-1.8 3.9 2.9c.7.4 1.3.2 1.5-.7l2.7-12.6c.3-1.1-.4-1.6-1.1-1.3L3.6 10.4c-1.1.4-1.1 1.1-.2 1.4l4.8 1.5 11.1-7c.5-.3 1-.1.6.2z"/></svg>
+        <span>Telegram</span>
+      </a>
+      <a href="https://github.com/externalprod" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3.0-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        <span>GitHub</span>
+      </a>
+    </nav>
+  </main>
+
+  <div class="player">
+    <button class="pbtn" id="pbtn" aria-label="Играть">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path id="ipath" d="M8 5v14l11-7z"/></svg>
+    </button>
+    <div class="pinfo">
+      <div class="ptitle">Love Me Not</div>
+      <div class="partist">Ravyn Lenae</div>
+      <div class="pbar" id="pbar"><div class="pfill" id="pfill"></div></div>
+      <div class="ptime"><span id="pcur">0:00</span><span id="pdur">0:00</span></div>
+    </div>
+    <audio id="audio" preload="auto" autoplay muted playsinline src="track.mp3"></audio>
+  </div>
+
+  <script>
+(function () {
+  const audio = document.getElementById("audio");
+  const btn = document.getElementById("pbtn");
+  const icon = document.getElementById("ipath");
+  const bar = document.getElementById("pbar");
+  const fill = document.getElementById("pfill");
+  const cur = document.getElementById("pcur");
+  const dur = document.getElementById("pdur");
+  const PLAY = "M8 5v14l11-7z";
+  const PAUSE = "M6 5h4v14H6zM14 5h4v14h-4z";
+  const EVENTS = ["pointerdown", "keydown", "touchstart", "scroll"];
+
+  function fmt(s) {
+    if (!isFinite(s)) return "0:00";
+    const m = Math.floor(s / 60);
+    const r = Math.floor(s % 60);
+    return m + ":" + (r < 10 ? "0" : "") + r;
+  }
+
+  function unmuteOnInteraction() {
+    const unlock = function (e) {
+      audio.muted = false;
+      const onPlayer = e && e.target && e.target.closest && e.target.closest(".player");
+      if (!onPlayer && audio.paused) audio.play();
+      EVENTS.forEach(function (ev) { document.removeEventListener(ev, unlock); });
+    };
+    EVENTS.forEach(function (ev) { document.addEventListener(ev, unlock, { passive: true }); });
+  }
+
+  function start() {
+    audio.muted = true;
+    const p = audio.play();
+    if (p && p.catch) p.catch(function () {});
+    unmuteOnInteraction();
+  }
+  if (audio.readyState >= 2) start();
+  else audio.addEventListener("canplay", start, { once: true });
+
+  btn.addEventListener("click", function () {
+    if (audio.paused) audio.play();
+    else audio.pause();
+  });
+  audio.addEventListener("play", function () {
+    icon.setAttribute("d", PAUSE);
+    btn.setAttribute("aria-label", "Пауза");
+  });
+  audio.addEventListener("pause", function () {
+    icon.setAttribute("d", PLAY);
+    btn.setAttribute("aria-label", "Играть");
+  });
+  audio.addEventListener("loadedmetadata", function () {
+    dur.textContent = fmt(audio.duration);
+  });
+  audio.addEventListener("timeupdate", function () {
+    const p = audio.duration ? audio.currentTime / audio.duration : 0;
+    fill.style.width = (p * 100) + "%";
+    cur.textContent = fmt(audio.currentTime);
+  });
+  audio.addEventListener("ended", function () {
+    audio.currentTime = 0;
+    fill.style.width = "0%";
+    cur.textContent = "0:00";
+  });
+  bar.addEventListener("click", function (e) {
+    if (!audio.duration) return;
+    const r = bar.getBoundingClientRect();
+    const p = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+    audio.currentTime = p * audio.duration;
+  });
+})();
+  </script>
+</body>
+</html>
